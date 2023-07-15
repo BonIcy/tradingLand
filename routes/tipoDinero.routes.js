@@ -1,6 +1,6 @@
-const { Router } = require('express');
-const router = Router();
-const { getTipoDinero, postTipoDinero, deleteTipoDinero, putTipoDinero, patchTipoDinero } = require('../controllers/tipoDinero.controller.js');
+let { Router } = require('express');
+let router = Router();
+let { getTipoDinero, postTipoDinero, deleteTipoDinero, putTipoDinero, patchTipoDinero } = require('../controllers/tipoDinero.controller.js');
 
 router.get('/all', getTipoDinero);
 router.post('/add', postTipoDinero);

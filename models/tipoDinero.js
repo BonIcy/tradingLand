@@ -1,5 +1,4 @@
 let mongoose = require('mongoose');
-
 let tipoDineroSchema = new mongoose.Schema(
     {
     nombre:{
@@ -7,7 +6,6 @@ let tipoDineroSchema = new mongoose.Schema(
         required: true,
         trim:true
     }
-    
     },
     {
         timstamps : true

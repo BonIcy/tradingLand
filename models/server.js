@@ -7,6 +7,7 @@ class Server {
         this.app = express();
         this.port = process.env.PORT;
         this.tipoDineroPath = '/api/tipoDinero';
+        this.traderPath = '/api/trader'
         // Middleware
         this.middlewares();
         // Rutas
@@ -21,6 +22,7 @@ class Server {
 
     routes() {
         this.app.use('/api/tipoDinero', require('../routes/tipoDinero.routes.js'));
+        this.app.use('/api/trader', require('../routes/trader.routes.js'));
     }
 
 
