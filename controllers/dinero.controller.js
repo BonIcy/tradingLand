@@ -1,18 +1,20 @@
-let Trader = require('../models/traders.js')
+let Dinero = require('../models/dinero.js');
 
-let getTrader = async (req, res) => {
+
+let getDinero = async (req, res) => {
     try {
-        let trader = await Trader.find();
-        res.json(trader);
+        let dinero = await Dinero.find();
+        res.json(dinero);
     } catch (error) {
         res.status(500).json({ message: 'Error al obtener' });
     }
 };
 
-let postTrader = async (req, res) => {
+
+let postDinero = async (req, res) => {
     try {
-        let nuevoTrader = new Trader(req.body);
-        let resultado = await nuevoTrader.save();
+        let nuevoDinero = new Dinero(req.body);
+        let resultado = await nuevoDinero.save();
         res.json(resultado);
     } catch (error) {
         res.status(500).json({ message: 'Error al agregar' });
@@ -20,10 +22,10 @@ let postTrader = async (req, res) => {
 };
 
 
-let deleteTrader = async (req, res) => {
+let deleteDinero = async (req, res) => {
     try {
         let { id } = req.params;
-        let resultado = await Trader.findByIdAndDelete(id);
+        let resultado = await Dinero.findByIdAndDelete(id);
         if (resultado) {
             res.json({ message: 'Registro eliminado' });
         } else {
@@ -35,11 +37,11 @@ let deleteTrader = async (req, res) => {
 };
 
 
-let putTrader = async (req, res) => {
+let putDinero = async (req, res) => {
     try {
         let { id } = req.params;
         let updatedData = req.body;
-        let resultado = await Trader.findByIdAndUpdate(id, updatedData, { new: true });
+        let resultado = await Dinero.findByIdAndUpdate(id, updatedData, { new: true });
         if (resultado) {
             res.json(resultado);
         } else {
@@ -51,11 +53,11 @@ let putTrader = async (req, res) => {
 };
 
 
-let patchTrader = async (req, res) => {
+let patchDinero = async (req, res) => {
     try {
         let { id } = req.params;
         let updatedData = req.body;
-        let resultado = await Trader.findByIdAndUpdate(id, updatedData, { new: true });
+        let resultado = await Dinero.findByIdAndUpdate(id, updatedData, { new: true });
         if (resultado) {
             res.json(resultado);
         } else {
@@ -67,9 +69,9 @@ let patchTrader = async (req, res) => {
 };
 
 module.exports = {
-    getTrader,
-    postTrader,
-    deleteTrader,
-    putTrader,
-    patchTrader
+    getDinero,
+    postDinero,
+    deleteDinero,
+    putDinero,
+    patchDinero
 };

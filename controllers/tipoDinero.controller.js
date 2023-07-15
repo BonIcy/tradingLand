@@ -1,6 +1,6 @@
 let TipoDinero = require('../models/tipoDinero.js');
 
-// Controlador para obtener todos los registros
+
 let getTipoDinero = async (req, res) => {
     try {
         let tipoDinero = await TipoDinero.find();
@@ -10,7 +10,7 @@ let getTipoDinero = async (req, res) => {
     }
 };
 
-// Controlador para agregar un nuevo registro
+
 let postTipoDinero = async (req, res) => {
     try {
         let nuevoTipoDinero = new TipoDinero(req.body);
@@ -21,7 +21,7 @@ let postTipoDinero = async (req, res) => {
     }
 };
 
-// Controlador para eliminar un registro
+
 let deleteTipoDinero = async (req, res) => {
     try {
         let { id } = req.params;
@@ -36,7 +36,7 @@ let deleteTipoDinero = async (req, res) => {
     }
 };
 
-// Controlador para actualizar un registro
+
 let putTipoDinero = async (req, res) => {
     try {
         let { id } = req.params;
@@ -45,14 +45,14 @@ let putTipoDinero = async (req, res) => {
         if (resultado) {
             res.json(resultado);
         } else {
-            res.status(404).json({ message: 'Registro no encontrado' });
+            res.status(404).json({ message: 'No encontrado' });
         }
     } catch (error) {
         res.status(500).json({ message: 'Error al actualizar' });
     }
 };
 
-// Controlador para actualizar parcialmente un registro
+
 let patchTipoDinero = async (req, res) => {
     try {
         let { id } = req.params;
@@ -64,7 +64,7 @@ let patchTipoDinero = async (req, res) => {
             res.status(404).json({ message: 'Registro no encontrado' });
         }
     } catch (error) {
-        res.status(500).json({ message: 'Error al actualizar parcialmente' });
+        res.status(500).json({ message: 'Error al actualizar' });
     }
 };
 

@@ -1,29 +1,29 @@
-let Trader = require('../models/traders.js')
+let Acciones = require('../models/acciones.js');
 
-let getTrader = async (req, res) => {
+
+let getAcciones = async (req, res) => {
     try {
-        let trader = await Trader.find();
-        res.json(trader);
+        let acciones = await Acciones.find();
+        res.json(acciones);
     } catch (error) {
         res.status(500).json({ message: 'Error al obtener' });
     }
 };
 
-let postTrader = async (req, res) => {
+let postAcciones = async (req, res) => {
     try {
-        let nuevoTrader = new Trader(req.body);
-        let resultado = await nuevoTrader.save();
+        let nuevoAcciones = new Acciones(req.body);
+        let resultado = await nuevoAcciones.save();
         res.json(resultado);
     } catch (error) {
         res.status(500).json({ message: 'Error al agregar' });
     }
 };
 
-
-let deleteTrader = async (req, res) => {
+let deleteAcciones = async (req, res) => {
     try {
         let { id } = req.params;
-        let resultado = await Trader.findByIdAndDelete(id);
+        let resultado = await Acciones.findByIdAndDelete(id);
         if (resultado) {
             res.json({ message: 'Registro eliminado' });
         } else {
@@ -34,12 +34,11 @@ let deleteTrader = async (req, res) => {
     }
 };
 
-
-let putTrader = async (req, res) => {
+let putAcciones = async (req, res) => {
     try {
         let { id } = req.params;
         let updatedData = req.body;
-        let resultado = await Trader.findByIdAndUpdate(id, updatedData, { new: true });
+        let resultado = await Acciones.findByIdAndUpdate(id, updatedData, { new: true });
         if (resultado) {
             res.json(resultado);
         } else {
@@ -50,12 +49,11 @@ let putTrader = async (req, res) => {
     }
 };
 
-
-let patchTrader = async (req, res) => {
+let patchAcciones = async (req, res) => {
     try {
         let { id } = req.params;
         let updatedData = req.body;
-        let resultado = await Trader.findByIdAndUpdate(id, updatedData, { new: true });
+        let resultado = await Acciones.findByIdAndUpdate(id, updatedData, { new: true });
         if (resultado) {
             res.json(resultado);
         } else {
@@ -67,9 +65,9 @@ let patchTrader = async (req, res) => {
 };
 
 module.exports = {
-    getTrader,
-    postTrader,
-    deleteTrader,
-    putTrader,
-    patchTrader
+    getAcciones,
+    postAcciones,
+    deleteAcciones,
+    putAcciones,
+    patchAcciones
 };
